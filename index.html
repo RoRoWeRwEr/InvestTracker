@@ -583,7 +583,7 @@ function merge(t,s){const o={...t};for(const k in s){if(s[k]&&typeof s[k]==='obj
 // UTILS
 // ════════════════════════════════════════════════
 const A=n=>String(n);
-function f(n,d=0){if(n==null||isNaN(n))return'—';return Number(n).toLocaleString('ar-SA',{minimumFractionDigits:d,maximumFractionDigits:d});}
+function f(n,d=0){if(n==null||isNaN(n))return'—';return Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});}
 const sar=n=>f(n)+' ر';
 function td(){return new Date().toISOString().split('T')[0];}
 function dSince(s){return Math.floor((new Date()-new Date(s))/86400000);}
