@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="حرية 2041">
+<meta name="theme-color" content="#ffffff">
+<title>خطة الحرية المالية 2041</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+
+html, body {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+:root {
+  --bg:      #ffffff;
+  --bg2:     #f5f5f7;
+  --card:    #ffffff;
+  --card2:   #fafafa;
+  --navy:    #0D1F2D;
+  --blue:    #1A4A6E;
+  --blue2:   #1e5a85;
+  --teal:    #0D6E5E;
+  --teal2:   #0f8572;
+  --gold:    #9a7520;
+  --gold2:   #b8902e;
+  --green:   #1A7A4A;
+  --green2:  #1a6e42;
+  --red:     #b52d20;
+  --red2:    #c0392b;
+  --border:  #e5e5ea;
+  --border2: #d1d1d6;
+  --text:    #1c1c1e;
+  --text2:   #3a3a3c;
+  --text3:   #636366;
+  --text4:   #aeaeb2;
+  --radius:  16px;
+  --shadow:  0 2px 8px rgba(0,0,0,0.08);
+  --shadow2: 0 1px 3px rgba(0,0,0,0.06);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background: #ffffff !important;
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  direction: rtl;
+}
+
+#app { padding-bottom: calc(74px + var(--safe-bottom)); }
+
+/* ═══ HEADER ═══ */
+.header {
+  background: var(--card);
+  padding: 52px 20px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow2);
+}
+.header-title { font-size: 17px; font-weight: 800; color: var(--blue); }
+.header-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
+.header-day {
+  background: var(--blue);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 5px 13px;
+  border-radius: 20px;
+}
+
+/* ═══ TABS ═══ */
+.tab-content { display: none; padding: 16px; animation: fadeIn 0.25s ease; }
+.tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+/* ═══ BOTTOM NAV ═══ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  display: flex;
+  padding-bottom: var(--safe-bottom);
+  z-index: 200;
+  box-shadow: 0 -2px 12px rgba(26,74,110,0.08);
+}
+.nav-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 4px;
+  background: none;
+  border: none;
+  color: var(--text4);
+  font-family: 'Tajawal', sans-serif;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.nav-btn.active { color: var(--blue); }
+.nav-btn.active::before {
+  content:'';
+  position:absolute;
+  top:0; left:20%; right:20%;
+  height:2px;
+  background: var(--blue);
+  border-radius:0 0 3px 3px;
+}
+.nav-icon { font-size: 20px; line-height:1; }
+
+/* ═══ CARDS ═══ */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow2);
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.card-title { font-size: 13px; font-weight: 700; color: var(--text2); }
+
+.badge { font-size: 10px; padding: 3px 9px; border-radius: 10px; font-weight: 700; }
+.badge-green { background: #e6f7ef; color: #1a6e42; border: 1px solid #b3e6cc; }
+.badge-red   { background: #fdecea; color: #b52d20; border: 1px solid #f5b8b2; }
+.badge-gold  { background: #fdf5e4; color: #9a7520; border: 1px solid #e8d090; }
+.badge-blue  { background: #f5f5f7; color: #1A4A6E; border: 1px solid #b8d0ec; }
+
+.big-number {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.big-number span { font-size: 14px; font-weight: 500; color: var(--text3); margin-right: 4px; }
+
+.row { display: flex; justify-content: space-between; align-items: center; margin: 7px 0; }
+.label { font-size: 12px; color: var(--text3); }
+.value { font-size: 13px; font-weight: 700; color: var(--text); }
+.value.pos { color: var(--green2); }
+.value.neg { color: var(--red2); }
+.value.gold { color: var(--gold2); }
+
+/* ═══ PROGRESS BAR ═══ */
+.progress-wrap { margin: 12px 0; }
+.progress-label { display:flex; justify-content:space-between; font-size:11px; color:var(--text3); margin-bottom:6px; }
+.progress-bar { height:8px; background:var(--bg2); border-radius:4px; overflow:hidden; }
+.progress-fill {
+  height:100%;
+  border-radius:4px;
+  background: linear-gradient(90deg, var(--blue), var(--teal2));
+  transition: width 1s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ═══ DIVIDER ═══ */
+.divider { height:1px; background: var(--border); margin: 12px 0; }
+
+/* ═══ BUTTONS ═══ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-gold    { background: var(--blue); color: #fff; }
+.btn-gold:active { transform: scale(0.97); opacity:0.9; }
+.btn-outline { background: var(--bg2); border: 1px solid var(--border2); color: var(--text2); }
+.btn-outline:active { background: var(--border); }
+.btn-red     { background: #fdecea; border:1px solid #f5b8b2; color:var(--red2); }
+.btn-teal    { background: #f0f7f5; border:1px solid #b0ddd6; color:var(--teal2); }
+.btn-sm      { padding: 6px 10px; font-size: 11px; }
+.btn-row     { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+
+/* ═══ SECTION TITLE ═══ */
+.section-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 20px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+/* ═══ MODAL ═══ */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(13,31,45,0.35);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
+.modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
+.modal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 20px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: slideUp 0.28s cubic-bezier(0.4,0,0.2,1);
+  padding-bottom: calc(20px + var(--safe-bottom));
+  box-shadow: 0 -8px 32px rgba(26,74,110,0.12);
+}
+@keyframes slideUp { from{transform:translateY(100%)} to{transform:translateY(0)} }
+.modal-handle { width:40px; height:4px; background:var(--border2); border-radius:2px; margin:0 auto 16px; }
+.modal-title { font-size:16px; font-weight:800; margin-bottom:16px; color:var(--blue); }
+
+/* ═══ FORM ═══ */
+.form-group { margin-bottom: 14px; }
+.form-label { font-size:12px; color:var(--text3); margin-bottom:6px; display:block; font-weight:600; }
+.form-input {
+  width:100%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-family: 'Tajawal', sans-serif;
+  font-size: 14px;
+  direction: ltr;
+  text-align: right;
+}
+.form-input:focus { outline:none; border-color:var(--blue); background:var(--card); box-shadow:0 0 0 3px rgba(26,74,110,0.1); }
+.form-select {
+  width:100%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-family: 'Tajawal', sans-serif;
+  font-size: 14px;
+  direction: rtl;
+  -webkit-appearance: none;
+}
+.form-select:focus { outline:none; border-color:var(--blue); }
+
+/* ═══ CHECKLIST ═══ */
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.check-item.done { background: #e8f5ef; border-color: #b0ddc4; }
+.check-box {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--border2);
+  display: flex; align-items:center; justify-content:center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  font-size:12px;
+  background: var(--card);
+}
+.check-item.done .check-box { background: var(--teal2); border-color: var(--teal2); color:#fff; }
+.check-info { flex: 1; }
+.check-name { font-size:13px; font-weight:700; color: var(--text); }
+.check-meta { font-size:11px; color:var(--text3); margin-top:2px; }
+.check-amount { font-size:13px; font-weight:800; color: var(--blue); }
+.check-date-btn { font-size:18px; color:var(--text4); padding:4px; }
+
+/* ═══ STREAK ═══ */
+.streak-card {
+  background: #f5f5f7;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow2);
+}
+.streak-fire { font-size: 36px; }
+.streak-num { font-size: 32px; font-weight: 900; color: var(--blue); }
+.streak-label { font-size: 12px; color: var(--text3); }
+
+/* ═══ MINI STATS ═══ */
+.mini-stats { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
+.mini-stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: var(--shadow2);
+}
+.mini-stat-val { font-size:18px; font-weight:900; color:var(--text); }
+.mini-stat-label { font-size:11px; color:var(--text3); margin-top:2px; }
+
+/* ═══ SVG CHART ═══ */
+.chart-wrap { width:100%; overflow:hidden; border-radius:10px; background:var(--bg2); }
+svg text { font-family: 'Tajawal', sans-serif; }
+
+/* ═══ TOAST ═══ */
+.toast {
+  position:fixed;
+  top:90px; left:50%;
+  transform:translateX(-50%);
+  background: var(--blue);
+  border-radius:12px;
+  padding:10px 20px;
+  font-size:13px;
+  font-weight:700;
+  color:#fff;
+  z-index:2000;
+  opacity:0;
+  transition:opacity 0.3s;
+  white-space:nowrap;
+  pointer-events:none;
+  box-shadow: var(--shadow);
+}
+.toast.show { opacity:1; }
+
+/* ═══ ALERTS ═══ */
+.alert {
+  border-radius:12px;
+  padding:12px 14px;
+  font-size:12px;
+  margin-bottom:12px;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+.alert-warn  { background:#fdf6e3; border:1px solid #e8d090; color:#7a5a10; }
+.alert-red   { background:#fdecea; border:1px solid #f5b8b2; color:var(--red2); }
+.alert-green { background:#e8f5ef; border:1px solid #b0ddc4; color:var(--green2); }
+
+/* ═══ HISTORY ═══ */
+.history-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 0;
+  border-bottom:1px solid var(--border);
+}
+.history-date { font-size:11px; color:var(--text3); }
+.history-val  { font-size:13px; font-weight:700; }
+
+/* ═══ TAG ═══ */
+.tag {
+  display:inline-block;
+  font-size:10px;
+  padding:2px 8px;
+  border-radius:6px;
+  font-weight:700;
+  background: #f5f5f7;
+  color: var(--blue);
+  border:1px solid #b8d0ec;
+}
+
+/* ═══ DEPOSIT BADGE ═══ */
+.deposit-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  font-size:10px;
+  padding:3px 8px;
+  border-radius:8px;
+  background: #f0f7f5;
+  border:1px solid #b0ddd6;
+  color:var(--teal2);
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* ═══ NET WORTH TIMELINE ═══ */
+.timeline-point { cursor:pointer; transition:r 0.2s; }
+.timeline-point:hover { r:5; }
+
+/* ═══ RULE 72 ═══ */
+.rule72-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.rule72-item {
+  background: var(--bg2);
+  border-radius:10px;
+  padding:10px;
+  border:1px solid var(--border);
+}
+.rule72-years { font-size:22px; font-weight:900; color:var(--blue); }
+.rule72-name  { font-size:11px; color:var(--text3); }
+
+/* ═══ CLOSED POSITIONS ═══ */
+.closed-badge {
+  font-size:10px; padding:2px 7px; border-radius:6px;
+  background: var(--bg2); color:var(--text3);
+  border:1px solid var(--border2);
+}
+
+/* ═══ CALCULATOR ═══ */
+.calc-result {
+  background: #f5f5f7;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+  margin-top:12px;
+  text-align:center;
+}
+.calc-big { font-size:24px; font-weight:900; color:var(--blue); }
+.calc-sub { font-size:12px; color:var(--text3); margin-top:4px; }
+
+/* ═══ HERO CARD ═══ */
+.hero-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 20px rgba(26,74,110,0.10);
+}
+.hero-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; }
+.hero-label { font-size:12px; font-weight:700; color:var(--text3); margin-bottom:4px; letter-spacing:0.3px; }
+.hero-number { font-size:36px; font-weight:900; color:var(--text); letter-spacing:-1px; line-height:1; }
+.hero-number span { font-size:14px; font-weight:600; color:var(--text3); margin-right:4px; }
+.hero-update-btn {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-family: Tajawal,sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space:nowrap;
+}
+.hero-progress-wrap { margin-bottom:14px; }
+.hero-progress-bar { height:10px; background:var(--bg2); border-radius:5px; overflow:hidden; margin-bottom:6px; }
+.hero-progress-fill {
+  height:100%; border-radius:5px;
+  background: linear-gradient(90deg, var(--blue), var(--teal2));
+  transition: width 1s cubic-bezier(0.4,0,0.2,1);
+}
+.hero-progress-labels { display:flex; justify-content:space-between; font-size:11px; }
+.hero-stats-row {
+  display:flex; align-items:stretch;
+  background: var(--bg2);
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid var(--border);
+}
+.hero-stat { flex:1; padding:10px 8px; text-align:center; }
+.hero-stat-divider { width:1px; background:var(--border); }
+.hero-stat-label { font-size:10px; color:var(--text3); margin-bottom:4px; font-weight:600; }
+.hero-stat-val { font-size:14px; font-weight:800; color:var(--text); }
+/* ═══ DASH ROW ═══ */
+.dash-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
+.dash-tile {
+  border-radius:16px;
+  padding:14px;
+  border:1px solid var(--border);
+  box-shadow: var(--shadow2);
+}
+.dash-tile-icon { font-size:22px; margin-bottom:6px; line-height:1; }
+.dash-tile-val { font-size:26px; font-weight:900; line-height:1.1; }
+.dash-tile-label { font-size:10px; color:var(--text3); margin-top:3px; font-weight:600; }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div class="header">
+    <div>
+      <div class="header-title">خطة الحرية المالية</div>
+      <div class="header-sub">2026 — 2041</div>
+    </div>
+    <div class="header-day" id="dayCounter">يوم ١</div>
+  </div>
+
+  <!-- TAB 1: DASHBOARD -->
+  <div class="tab-content active" id="tab-home">
+
+    <!-- Hero Capital Card -->
+    <div class="hero-card">
+      <div class="hero-top">
+        <div>
+          <div class="hero-label">إجمالي رأس المال</div>
+          <div class="hero-number" id="totalCapital">٠ <span>ريال</span></div>
+        </div>
+        <button class="hero-update-btn" onclick="openModal('modal-update-capital')">تحديث</button>
+      </div>
+      <div class="hero-progress-wrap">
+        <div class="hero-progress-bar"><div class="hero-progress-fill" id="progressFill" style="width:0%"></div></div>
+        <div class="hero-progress-labels">
+          <span id="progressPct" style="font-weight:800;color:var(--blue)">٠٪</span>
+          <span style="color:var(--text3)">من ٦,٣٠٠,٠٠٠ ريال</span>
+        </div>
+      </div>
+      <div class="hero-stats-row">
+        <div class="hero-stat">
+          <div class="hero-stat-label">المتوقع</div>
+          <div class="hero-stat-val" id="expectedCapital">—</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">الفرق</div>
+          <div class="hero-stat-val" id="capitalDiff">—</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">الحرية</div>
+          <div class="hero-stat-val" id="freedomDate" style="font-size:11px">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Passive Income + Streak Row -->
+    <div class="dash-row">
+      <div class="dash-tile" style="background:#f0f4f8;border-color:#e5e5ea">
+        <div class="dash-tile-icon">📊</div>
+        <div class="dash-tile-val" id="passiveIncomeBadge" style="color:var(--blue)">~٠</div>
+        <div class="dash-tile-label">ريال/شهر دخل سلبي</div>
+        <div style="margin-top:6px">
+          <div style="height:4px;background:rgba(0,0,0,0.08);border-radius:2px;overflow:hidden">
+            <div id="passiveFill" style="height:100%;width:0%;background:var(--blue);border-radius:2px;transition:width 1s ease"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--text3);margin-top:3px">
+            <span id="passivePct">٠٪</span><span>٣٠,٠٠٠</span>
+          </div>
+        </div>
+      </div>
+      <div class="dash-tile" style="background:#f0f7f5;border-color:#e5e5ea">
+        <div class="dash-tile-icon">🔥</div>
+        <div class="dash-tile-val" id="streakDisplay" style="color:var(--teal)">١</div>
+        <div class="dash-tile-label">شهر التزام متتالي</div>
+        <div style="margin-top:6px;font-size:10px;color:var(--text3)" id="lastDeposit">—</div>
+      </div>
+    </div>
+
+    <!-- Goals row -->
+    <div class="card" style="padding:12px 16px">
+      <div style="display:flex;align-items:stretch">
+        <div style="flex:1;text-align:center;padding:0 8px">
+          <div style="font-size:10px;color:var(--text3);margin-bottom:3px">هدف الحرية الكامل</div>
+          <div style="font-size:15px;font-weight:900;color:var(--blue)">٣٠,٠٠٠</div>
+          <div style="font-size:9px;color:var(--text4)">ريال/شهر</div>
+        </div>
+        <div style="width:1px;background:var(--border);margin:4px 0"></div>
+        <div style="flex:1;text-align:center;padding:0 8px">
+          <div style="font-size:10px;color:var(--text3);margin-bottom:3px">هدف الحرية الأساسية</div>
+          <div style="font-size:15px;font-weight:900;color:var(--teal2)">٢٠,٠٠٠</div>
+          <div style="font-size:9px;color:var(--text4)">ريال/شهر</div>
+        </div>
+        <div style="width:1px;background:var(--border);margin:4px 0"></div>
+        <div style="flex:1;text-align:center;padding:0 8px">
+          <div style="font-size:10px;color:var(--text3);margin-bottom:3px">الاستثمار الشهري</div>
+          <div style="font-size:15px;font-weight:900;color:var(--text)">٩,٠٠٠</div>
+          <div style="font-size:9px;color:var(--text4)">ريال/شهر</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section-title">أدوات مالية</div>
+
+    <!-- Net Worth Timeline Chart -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">📈 مسيرة رأس المال</span>
+        <span class="badge-blue badge">Net Worth</span>
+      </div>
+      <div class="chart-wrap" id="netWorthChart"></div>
+    </div>
+
+    <!-- Expected vs Actual Chart -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">المتوقع vs الفعلي</span>
+        <span class="badge-gold badge">١٥ سنة</span>
+      </div>
+      <div class="chart-wrap" id="projectionChart"></div>
+    </div>
+
+    <!-- Rule of 72 -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">⚡ قاعدة ٧٢ — سنوات التضاعف</span>
+        <span class="badge-gold badge">Buffett Rule</span>
+      </div>
+      <div class="rule72-grid" id="rule72Grid"></div>
+    </div>
+
+    <!-- Extra Calculator -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">🧮 لو أضفت X ريال إضافي</span>
+      </div>
+      <div class="form-group" style="margin-bottom:8px">
+        <label class="form-label">المبلغ الإضافي شهرياً</label>
+        <input type="number" class="form-input" id="extraCalcInput" placeholder="مثال: 1000" oninput="calcExtra()">
+      </div>
+      <div class="calc-result" id="extraCalcResult" style="display:none">
+        <div class="calc-big" id="extraCalcBig">—</div>
+        <div class="calc-sub" id="extraCalcSub">—</div>
+      </div>
+    </div>
+
+    <!-- Zakat Calculator -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">🕌 الزكاة التقديرية</span>
+        <span class="badge-gold badge">٢.٥٪</span>
+      </div>
+      <div class="row">
+        <span class="label">النصاب (85 جرام ذهب ~)</span>
+        <span class="value">٢٣,٨٠٠ ريال</span>
+      </div>
+      <div class="row">
+        <span class="label">الزكاة التقديرية السنوية</span>
+        <span class="value gold" id="zakatAmount">—</span>
+      </div>
+      <div class="row">
+        <span class="label">الزكاة الشهرية</span>
+        <span class="value" id="zakatMonthly">—</span>
+      </div>
+    </div>
+
+    <!-- Settings -->
+    <div class="section-title">الإعدادات</div>
+    <div class="card">
+      <div class="form-group">
+        <label class="form-label">الاستثمار الشهري (ريال)</label>
+        <input type="number" class="form-input" id="settMonthly" value="9000" onchange="saveSettings()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">سعر الصرف USD/SAR</label>
+        <input type="number" class="form-input" id="settUSD" value="3.75" step="0.01" onchange="saveSettings()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">معدل التضخم السنوي ٪</label>
+        <input type="number" class="form-input" id="settInflation" value="2.5" step="0.1" onchange="saveSettings()">
+      </div>
+      <div class="form-group" style="margin-bottom:0">
+        <label class="form-label">معدل نمو الأسهم السنوي ٪</label>
+        <input type="number" class="form-input" id="settStockReturn" value="9" step="0.5" onchange="saveSettings()">
+      </div>
+    </div>
+
+    <!-- Backup -->
+    <div class="section-title">النسخ الاحتياطي</div>
+    <div class="card">
+      <div class="btn-row">
+        <button class="btn btn-gold" onclick="exportData()">📥 تصدير JSON</button>
+        <button class="btn btn-outline" onclick="document.getElementById('importFile').click()">📤 استيراد JSON</button>
+        <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: PORTFOLIOS -->
+  <div class="tab-content" id="tab-portfolios">
+    <div class="section-title">المحافظ الإلكترونية</div>
+    <div id="portfolioCards"></div>
+  </div>
+
+  <!-- TAB 3: STOCKS -->
+  <div class="tab-content" id="tab-stocks">
+    <div class="section-title">محفظة الأسهم</div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="row">
+        <span class="label">إجمالي التكلفة</span>
+        <span class="value" id="stockTotalCost">—</span>
+      </div>
+      <div class="row">
+        <span class="label">القيمة السوقية</span>
+        <span class="value" id="stockTotalValue">—</span>
+      </div>
+      <div class="row">
+        <span class="label">إجمالي الربح/الخسارة</span>
+        <span class="value" id="stockTotalPL">—</span>
+      </div>
+      <div class="row">
+        <span class="label">إجمالي التوزيعات</span>
+        <span class="value gold" id="stockTotalDiv">—</span>
+      </div>
+    </div>
+    <div id="stockCards"></div>
+
+    <!-- Closed Positions -->
+    <div id="closedSection" style="display:none">
+      <div class="section-title">مراكز مغلقة</div>
+      <div id="closedCards"></div>
+    </div>
+  </div>
+
+  <!-- TAB 4: COMMITMENT -->
+  <div class="tab-content" id="tab-commitment">
+    <div class="streak-card">
+      <div class="streak-fire">🔥</div>
+      <div>
+        <div class="streak-num" id="streakNum">١</div>
+        <div class="streak-label">شهر متتالي بدون انقطاع</div>
+      </div>
+      <div style="margin-right:auto;text-align:center">
+        <div style="font-size:20px;font-weight:900;color:var(--teal2)" id="commitPct">٠٪</div>
+        <div style="font-size:11px;color:var(--text3)">هذا الشهر</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+        <button class="btn btn-outline btn-sm" onclick="prevMonth()">▶</button>
+        <div style="font-size:14px;font-weight:700;color:var(--gold)" id="commitMonthLabel">مايو ٢٠٢٦</div>
+        <button class="btn btn-outline btn-sm" onclick="nextMonth()">◀</button>
+      </div>
+      <div id="checklistItems"></div>
+      <div class="form-group" style="margin-top:14px;margin-bottom:0">
+        <label class="form-label">ملاحظة الشهر</label>
+        <textarea class="form-input" id="monthNote" rows="2" placeholder="ملاحظاتك لهذا الشهر..." style="resize:none;direction:rtl;text-align:right" onchange="saveMonthNote()"></textarea>
+      </div>
+    </div>
+
+    <!-- History -->
+    <div class="section-title">سجل الأشهر السابقة</div>
+    <div class="card">
+      <div id="commitHistory"></div>
+    </div>
+  </div>
+
+  <!-- TAB 5: OTHER INVESTMENTS -->
+  <div class="tab-content" id="tab-other">
+    <div class="section-title">استثمارات أخرى</div>
+    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-bottom:16px" onclick="openModal('modal-add-investment')">+ إضافة استثمار جديد</button>
+    <div id="otherInvestments"></div>
+  </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <button class="nav-btn active" onclick="switchTab('home',this)" id="nav-home">
+    <span class="nav-icon">🏠</span><span>الرئيسية</span>
+  </button>
+  <button class="nav-btn" onclick="switchTab('portfolios',this)" id="nav-portfolios">
+    <span class="nav-icon">💼</span><span>المحافظ</span>
+  </button>
+  <button class="nav-btn" onclick="switchTab('stocks',this)" id="nav-stocks">
+    <span class="nav-icon">📈</span><span>الأسهم</span>
+  </button>
+  <button class="nav-btn" onclick="switchTab('commitment',this)" id="nav-commitment">
+    <span class="nav-icon">✅</span><span>الالتزام</span>
+  </button>
+  <button class="nav-btn" onclick="switchTab('other',this)" id="nav-other">
+    <span class="nav-icon">🏗</span><span>أخرى</span>
+  </button>
+</nav>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- MODAL: Update Capital -->
+<div class="modal-overlay" id="modal-update-capital">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">تحديث رأس المال</div>
+    <div class="form-group">
+      <label class="form-label">إجمالي رأس المال الحالي (ريال)</label>
+      <input type="number" class="form-input" id="input-capital" placeholder="مثال: 200000">
+    </div>
+    <div class="form-group">
+      <label class="form-label">تاريخ التحديث</label>
+      <input type="date" class="form-input" id="input-capital-date">
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-gold" onclick="saveCapital()">حفظ</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-update-capital')">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Portfolio Update -->
+<div class="modal-overlay" id="modal-portfolio-update">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="modal-port-title">تحديث المحفظة</div>
+    <div id="modal-port-body"></div>
+    <div class="btn-row">
+      <button class="btn btn-gold" onclick="savePortfolioUpdate()">حفظ</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-portfolio-update')">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Stock Buy -->
+<div class="modal-overlay" id="modal-stock-buy">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="modal-stock-buy-title">شراء أسهم</div>
+    <div class="form-group">
+      <label class="form-label">عدد الأسهم</label>
+      <input type="number" class="form-input" id="buy-qty" placeholder="0">
+    </div>
+    <div class="form-group">
+      <label class="form-label">سعر الشراء (ريال)</label>
+      <input type="number" class="form-input" id="buy-price" placeholder="0.00" step="0.01">
+    </div>
+    <div class="form-group">
+      <label class="form-label">تاريخ الشراء</label>
+      <input type="date" class="form-input" id="buy-date">
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-gold" onclick="saveStockBuy()">تأكيد الشراء</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-stock-buy')">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Stock Sell -->
+<div class="modal-overlay" id="modal-stock-sell">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="modal-stock-sell-title">إغلاق المركز</div>
+    <div class="form-group">
+      <label class="form-label">عدد الأسهم المباعة</label>
+      <input type="number" class="form-input" id="sell-qty" placeholder="0">
+    </div>
+    <div class="form-group">
+      <label class="form-label">سعر البيع (ريال)</label>
+      <input type="number" class="form-input" id="sell-price" placeholder="0.00" step="0.01">
+    </div>
+    <div class="form-group">
+      <label class="form-label">تاريخ البيع</label>
+      <input type="date" class="form-input" id="sell-date">
+    </div>
+    <div id="sell-preview" style="display:none" class="calc-result">
+      <div class="calc-sub" id="sell-pl-label">الربح/الخسارة المحققة</div>
+      <div class="calc-big" id="sell-pl-val">—</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-red" onclick="saveStockSell()">تأكيد البيع</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-stock-sell')">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Add Dividend -->
+<div class="modal-overlay" id="modal-dividend">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="modal-div-title">إضافة توزيع</div>
+    <div class="form-group">
+      <label class="form-label">مبلغ التوزيع (ريال)</label>
+      <input type="number" class="form-input" id="div-amount" placeholder="0.00" step="0.01">
+    </div>
+    <div class="form-group">
+      <label class="form-label">تاريخ التوزيع</label>
+      <input type="date" class="form-input" id="div-date">
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-gold" onclick="saveDividend()">حفظ</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-dividend')">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Change Date -->
+<div class="modal-overlay" id="modal-change-date">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">تعديل تاريخ التنفيذ</div>
+    <div class="form-group">
+      <label class="form-label">التاريخ الفعلي للتنفيذ</label>
+      <input type="date" class="form-input" id="change-date-input">
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-gold" onclick="saveCheckDate()">حفظ</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-change-date')">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Add Deposit (Inma) -->
+<div class="modal-overlay" id="modal-inma-deposit">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">إضافة دفعة وديعة جديدة</div>
+    <div class="form-group">
+      <label class="form-label">المبلغ (ريال)</label>
+      <input type="number" class="form-input" id="inma-amount" placeholder="100000">
+    </div>
+    <div class="form-group">
+      <label class="form-label">النسبة السنوية ٪</label>
+      <input type="number" class="form-input" id="inma-rate" placeholder="5.087" step="0.001">
+    </div>
+    <div class="form-group">
+      <label class="form-label">تاريخ البدء</label>
+      <input type="date" class="form-input" id="inma-start">
+    </div>
+    <div class="form-group">
+      <label class="form-label">المدة (أشهر)</label>
+      <input type="number" class="form-input" id="inma-months" placeholder="6">
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-gold" onclick="saveInmaDeposit()">حفظ الدفعة</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-inma-deposit')">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Add Investment -->
+<div class="modal-overlay" id="modal-add-investment">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">إضافة استثمار جديد</div>
+    <div class="form-group">
+      <label class="form-label">نوع الاستثمار</label>
+      <select class="form-select" id="inv-type">
+        <option value="عقار">عقار</option>
+        <option value="صندوق">صندوق استثماري</option>
+        <option value="مشروع">مشروع تجاري</option>
+        <option value="آخر">آخر</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">اسم الاستثمار</label>
+      <input type="text" class="form-input" id="inv-name" placeholder="مثال: صندوق داوان ووك" style="direction:rtl;text-align:right">
+    </div>
+    <div class="form-group">
+      <label class="form-label">المنصة / الجهة</label>
+      <input type="text" class="form-input" id="inv-platform" placeholder="مثال: أصيل Aseel" style="direction:rtl;text-align:right">
+    </div>
+    <div class="form-group">
+      <label class="form-label">المبلغ المستثمر (ريال)</label>
+      <input type="number" class="form-input" id="inv-amount" placeholder="0">
+    </div>
+    <div class="form-group">
+      <label class="form-label">تاريخ البدء</label>
+      <input type="date" class="form-input" id="inv-start">
+    </div>
+    <div class="form-group">
+      <label class="form-label">مدة الاستثمار (أشهر)</label>
+      <input type="number" class="form-input" id="inv-months" placeholder="60">
+    </div>
+    <div class="form-group">
+      <label class="form-label">العائد السنوي المتوقع ٪</label>
+      <input type="number" class="form-input" id="inv-return" placeholder="16" step="0.1">
+    </div>
+    <div class="form-group">
+      <label class="form-label">ملاحظة</label>
+      <input type="text" class="form-input" id="inv-note" placeholder="ملاحظة اختيارية" style="direction:rtl;text-align:right">
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-gold" onclick="saveInvestment()">حفظ</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-add-investment')">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Add Inv Distribution -->
+<div class="modal-overlay" id="modal-inv-dist">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="modal-inv-dist-title">إضافة توزيع</div>
+    <div class="form-group">
+      <label class="form-label">المبلغ (ريال)</label>
+      <input type="number" class="form-input" id="inv-dist-amount" placeholder="0">
+    </div>
+    <div class="form-group">
+      <label class="form-label">التاريخ</label>
+      <input type="date" class="form-input" id="inv-dist-date">
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-gold" onclick="saveInvDist()">حفظ</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-inv-dist')">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// DATA LAYER
+// ═══════════════════════════════════════════
+
+const PLAN_START = new Date('2026-04-01');
+const GOAL_CAPITAL = 6300000;
+const GOAL_PASSIVE = 30000;
+const GOAL_PASSIVE_BASE = 20000;
+
+let state = {
+  capital: { value: 200020, history: [{date:'2026-05-05', value:200020}] },
+  settings: { monthlyInvest: 9000, usdRate: 3.75, inflation: 2.5, stockReturn: 9 },
+  portfolios: initPortfolios(),
+  stocks: initStocks(),
+  closedStocks: [],
+  commitment: initCommitment(),
+  otherInvestments: initOtherInvestments(),
+  passiveIncome: 850
+};
+
+function initPortfolios() {
+  return [
+    {
+      id:'inma', name:'وديعة الإنماء', icon:'🏦', platform:'بنك الإنماء',
+      type:'deposit', monthlyAdd: 0,
+      deposits: [{amount:100000, rate:5.087, start:'2026-05-05', months:6, active:true}],
+      balance: 100000, color:'var(--gold)'
+    },
+    {
+      id:'abyan-numu', name:'أبيان نمو', icon:'🌱', platform:'أبيان',
+      type:'fund', annualReturn:7.61, monthlyAdd:800,
+      balance: 800, invested: 800, color:'var(--teal2)'
+    },
+    {
+      id:'abyan-saudi', name:'أبيان السوق السعودي', icon:'🇸🇦', platform:'أبيان',
+      type:'fund', annualReturn:17.05, monthlyAdd:600,
+      balance: 600, invested: 600, color:'var(--blue2)'
+    },
+    {
+      id:'tamara-mod', name:'تمرة المعتدلة', icon:'⚖️', platform:'تمرة',
+      type:'fund', annualReturn:3.93, monthlyAdd:300,
+      balance: 300, invested: 300, color:'var(--text2)'
+    },
+    {
+      id:'tamara-adv', name:'تمرة المغامرة', icon:'🚀', platform:'تمرة',
+      type:'fund', annualReturn:12, monthlyAdd:2000,
+      balance: 13379.30, invested: 12970.15, color:'var(--red2)'
+    },
+    {
+      id:'malaa-cash', name:'ملاءة كاش باك', icon:'💳', platform:'ملاءة',
+      type:'flexible', annualReturn:5.85, monthlyAdd:0,
+      balance: 1204.83, invested: 1200, color:'#9b59b6'
+    },
+    {
+      id:'malaa-basic', name:'ملاءة أساسية عالية', icon:'🏛', platform:'ملاءة',
+      type:'fund', annualReturn:6, monthlyAdd:1000,
+      balance: 7176.79, invested: 7000, color:'var(--green2)'
+    },
+    {
+      id:'abyan-trading', name:'أبيان تداول', icon:'💹', platform:'أبيان',
+      type:'usd', annualReturn:5, monthlyAdd:0,
+      balanceUSD: 1473.06, earningsUSD: 6.57,
+      balance: 1473.06 * 3.75, color:'var(--gold)'
+    },
+    {
+      id:'gldm', name:'ذهب GLDM', icon:'🥇', platform:'أبيان تداول',
+      type:'fund', annualReturn:7, monthlyAdd:100,
+      balance: 0, invested: 0, color:'#f39c12'
+    }
+  ];
+}
+
+function initStocks() {
+  return [
+    {
+      id:'1120', name:'الراجحي', icon:'🏦', buyDay:22, monthlyTarget:300,
+      shares:153, avgCost:52.3539, currentPrice:67.25,
+      totalCost:8010.15, currentValue:10289.25,
+      dividends:[{date:'2026-04-30', amount:175}],
+      trades:[{date:'2026-04-22', qty:153, price:52.3539, type:'buy'}],
+      status:'active'
+    },
+    {
+      id:'1150', name:'الإنماء', icon:'🏦', buyDay:8, monthlyTarget:700,
+      shares:353, avgCost:25.3348, currentPrice:23.83,
+      totalCost:8943.17, currentValue:8411.99,
+      dividends:[],
+      trades:[{date:'2026-04-08', qty:353, price:25.3348, type:'buy'}],
+      status:'active'
+    },
+    {
+      id:'2010', name:'سابك', icon:'🏭', buyDay:0, monthlyTarget:0,
+      shares:123, avgCost:75.80, currentPrice:61.20,
+      totalCost:9323.40, currentValue:7527.60,
+      dividends:[{date:'2026-03-31', amount:184.50}],
+      trades:[],
+      status:'hold', note:'انتظار نتائج 2026'
+    },
+    {
+      id:'2083', name:'مرافق', icon:'⚡', buyDay:0, monthlyTarget:0,
+      shares:72, avgCost:58.70, currentPrice:34.28,
+      totalCost:4226.40, currentValue:2468.16,
+      dividends:[{date:'2026-03-31', amount:129.60}],
+      trades:[],
+      status:'active', note:'قرار البيع معلّق'
+    },
+    {
+      id:'2222', name:'أرامكو السعودية', icon:'🛢', buyDay:1, monthlyTarget:1500,
+      shares:819, avgCost:28.3057, currentPrice:27.66,
+      totalCost:23182.37, currentValue:22653.54,
+      dividends:[{date:'2026-03-31', amount:237.51}],
+      trades:[{date:'2026-04-01', qty:819, price:28.3057, type:'buy'}],
+      status:'active'
+    },
+    {
+      id:'3040', name:'أسمنت القصيم', icon:'🏗', buyDay:15, monthlyTarget:400,
+      shares:27, avgCost:49.48, currentPrice:43.40,
+      totalCost:1335.96, currentValue:1171.80,
+      dividends:[{date:'2026-04-20', amount:13.60}],
+      trades:[{date:'2026-04-15', qty:27, price:49.48, type:'buy'}],
+      status:'active'
+    },
+    {
+      id:'4013', name:'سليمان الحبيب', icon:'🏥', buyDay:15, monthlyTarget:500,
+      shares:3, avgCost:253.7333, currentPrice:218.40,
+      totalCost:761.20, currentValue:655.20,
+      dividends:[],
+      trades:[{date:'2026-04-15', qty:3, price:253.7333, type:'buy'}],
+      status:'active'
+    },
+    {
+      id:'7010', name:'STC اس تي سي', icon:'📡', buyDay:8, monthlyTarget:600,
+      shares:13, avgCost:42.5431, currentPrice:42.88,
+      totalCost:553.06, currentValue:557.44,
+      dividends:[],
+      trades:[{date:'2026-04-08', qty:13, price:42.5431, type:'buy'}],
+      status:'active'
+    }
+  ];
+}
+
+function initCommitment() {
+  const items = [
+    {id:'c1', day:1, name:'أرامكو 2222', amount:1500, category:'stocks'},
+    {id:'c2', day:1, name:'محافظ إلكترونية', amount:2000, category:'portfolios'},
+    {id:'c3', day:8, name:'الإنماء 1150', amount:700, category:'stocks'},
+    {id:'c4', day:8, name:'STC 7010', amount:600, category:'stocks'},
+    {id:'c5', day:15, name:'الحبيب 4013', amount:500, category:'stocks'},
+    {id:'c6', day:15, name:'القصيم 3040', amount:400, category:'stocks'},
+    {id:'c7', day:15, name:'تمرة مغامرة + ملاءة أساسية', amount:3000, category:'portfolios'},
+    {id:'c8', day:22, name:'الراجحي 1120', amount:300, category:'stocks'},
+    {id:'c9', day:0, name:'GLDM ذهب', amount:100, category:'gold'},
+  ];
+  return {
+    streak: 1,
+    months: {
+      '2026-04': { done: ['c1','c2','c3','c4','c5','c6','c7','c8','c9'], dates:{}, note:'أول شهر — مكتمل' },
+      '2026-05': { done: ['c1','c2'], dates:{}, note:'' }
+    },
+    items
+  };
+}
+
+function initOtherInvestments() {
+  return [
+    {
+      id:'dawaan', name:'داوان ووك المدر للدخل', type:'صندوق',
+      platform:'أصيل Aseel', amount:19000,
+      start:'2023-05-23', months:60, annualReturn:16,
+      distributions:[
+        {date:'2023-08-28', amount:760},
+        {date:'2023-09-02', amount:760},
+        {date:'2024-03-14', amount:760},
+        {date:'2025-03-06', amount:760}
+      ],
+      note:'آخر توزيع مارس 2025 — انتظار'
+    }
+  ];
+}
+
+// ═══════════════════════════════════════════
+// STORAGE
+// ═══════════════════════════════════════════
+
+function saveState() {
+  try { localStorage.setItem('freedom2041', JSON.stringify(state)); } catch(e){}
+}
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem('freedom2041');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      // Deep merge to preserve new defaults
+      state = deepMerge(state, parsed);
+    }
+  } catch(e){}
+}
+
+function deepMerge(target, source) {
+  const out = Object.assign({}, target);
+  for (const key in source) {
+    if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+      out[key] = deepMerge(target[key] || {}, source[key]);
+    } else {
+      out[key] = source[key];
+    }
+  }
+  return out;
+}
+
+// ═══════════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════════
+
+function fmt(n, decimals=0) {
+  if (n === undefined || n === null || isNaN(n)) return '—';
+  return Number(n).toLocaleString('ar-SA', {minimumFractionDigits:decimals, maximumFractionDigits:decimals});
+}
+
+function fmtSAR(n) { return fmt(n) + ' ريال'; }
+
+function toArabicNum(n) {
+  return String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+}
+
+function todayStr() {
+  return new Date().toISOString().split('T')[0];
+}
+
+function daysSince(dateStr) {
+  const d = new Date(dateStr);
+  const now = new Date();
+  return Math.floor((now - d) / 86400000);
+}
+
+function monthsBetween(d1, d2) {
+  const a = new Date(d1), b = new Date(d2);
+  return (b.getFullYear()-a.getFullYear())*12 + b.getMonth()-a.getMonth();
+}
+
+function getMonthKey(offset=0) {
+  const d = new Date();
+  d.setMonth(d.getMonth() + offset);
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
+}
+
+function monthLabel(key) {
+  const [y,m] = key.split('-');
+  const months = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+  return months[parseInt(m)-1] + ' ' + y;
+}
+
+function compoundGrowth(principal, annualRate, years) {
+  return principal * Math.pow(1 + annualRate/100, years);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ═══════════════════════════════════════════
+// TABS
+// ═══════════════════════════════════════════
+
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+  if(name==='home') renderHome();
+  if(name==='portfolios') renderPortfolios();
+  if(name==='stocks') renderStocks();
+  if(name==='commitment') renderCommitment();
+  if(name==='other') renderOther();
+}
+
+// ═══════════════════════════════════════════
+// MODALS
+// ═══════════════════════════════════════════
+
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  // Set today's date defaults
+  const dateInputs = document.querySelectorAll('#'+id+' input[type="date"]');
+  dateInputs.forEach(inp => { if(!inp.value) inp.value = todayStr(); });
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', e => {
+    if(e.target === overlay) overlay.classList.remove('open');
+  });
+});
+
+// ═══════════════════════════════════════════
+// HOME / DASHBOARD
+// ═══════════════════════════════════════════
+
+function sel(id) { return document.getElementById(id); }
+function setTxt(id, val) { const el = sel(id); if(el) el.textContent = val; }
+function setHTML(id, val) { const el = sel(id); if(el) el.innerHTML = val; }
+function setStyle(id, prop, val) { const el = sel(id); if(el) el.style[prop] = val; }
+function setVal(id, val) { const el = sel(id); if(el) el.value = val; }
+
+function renderHome() {
+  // Day counter
+  const days = daysSince('2026-04-01') + 1;
+  setTxt('dayCounter', 'يوم ' + toArabicNum(days));
+
+  // Capital
+  const cap = state.capital.value;
+  setHTML('totalCapital', fmt(cap) + ' <span>ريال</span>');
+  const pct = Math.min((cap / GOAL_CAPITAL) * 100, 100);
+  setStyle('progressFill', 'width', pct + '%');
+  setTxt('progressPct', toArabicNum(pct.toFixed(2)) + '٪');
+
+  // Expected vs actual
+  const monthsElapsed = monthsBetween('2026-04-01', new Date());
+  const monthlyInvest = state.settings.monthlyInvest;
+  const expectedCap = (monthsElapsed + 1) * monthlyInvest + 176605;
+  const diff = cap - expectedCap;
+  setTxt('expectedCapital', fmt(expectedCap));
+  setStyle('expectedCapital', 'color', 'var(--text2)');
+  const diffEl = sel('capitalDiff');
+  if(diffEl) {
+    diffEl.textContent = (diff >= 0 ? '+' : '') + fmt(diff);
+    diffEl.style.color = diff >= 0 ? 'var(--green2)' : 'var(--red2)';
+  }
+
+  // Passive income
+  const passive = state.passiveIncome;
+  setTxt('passiveIncomeBadge', '~' + fmt(passive));
+  const passivePct = Math.min((passive / GOAL_PASSIVE) * 100, 100);
+  setStyle('passiveFill', 'width', passivePct + '%');
+  setTxt('passivePct', toArabicNum(passivePct.toFixed(1)) + '٪');
+
+  // Freedom date
+  if(cap > 0 && monthlyInvest > 0) {
+    const avgReturn = 0.09;
+    let projected = cap;
+    let months = 0;
+    while(projected < GOAL_CAPITAL && months < 300) {
+      projected = projected * (1 + avgReturn/12) + monthlyInvest;
+      months++;
+    }
+    const fd = new Date();
+    fd.setMonth(fd.getMonth() + months);
+    const mNames = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+    setTxt('freedomDate', mNames[fd.getMonth()] + ' ' + fd.getFullYear());
+  }
+
+  // Streak & last deposit
+  setTxt('lastDeposit', '٣ مايو ٢٠٢٦ — ٤,٠٠٠ ريال');
+  setTxt('streakDisplay', toArabicNum(state.commitment.streak) + ' شهر');
+
+  // Monthly alert
+  const alertEl = sel('monthlyAlert');
+  const currMonth = getMonthKey();
+  const monthData = state.commitment.months[currMonth] || {done:[]};
+  const totalItems = state.commitment.items.length;
+  if(alertEl) {
+    if(monthData.done.length < totalItems) {
+      alertEl.style.display = 'flex';
+      const missed = monthlyInvest * Math.pow(1.09, 15) - monthlyInvest;
+      setTxt('missedCost', fmt(missed));
+    } else {
+      alertEl.style.display = 'none';
+    }
+  }
+
+  // Zakat
+  const zakat = cap * 0.025;
+  setTxt('zakatAmount', fmtSAR(zakat));
+  setTxt('zakatMonthly', fmtSAR(zakat/12));
+
+  // Settings
+  setVal('settMonthly', state.settings.monthlyInvest);
+  setVal('settUSD', state.settings.usdRate);
+  setVal('settInflation', state.settings.inflation);
+  setVal('settStockReturn', state.settings.stockReturn);
+
+  renderRule72();
+  renderNetWorthChart();
+  renderProjectionChart();
+}
+
+function renderRule72() {
+  const items = [
+    {name:'أبيان نمو', rate:7.61},
+    {name:'أبيان سوق سعودي', rate:17.05},
+    {name:'تمرة مغامرة', rate:12},
+    {name:'الأسهم السعودية', rate:state.settings.stockReturn},
+    {name:'داوان ووك', rate:16},
+    {name:'ذهب GLDM', rate:7},
+  ];
+  const grid = document.getElementById('rule72Grid');
+  grid.innerHTML = items.map(it => {
+    const years = (72 / it.rate).toFixed(1);
+    return `<div class="rule72-item">
+      <div class="rule72-years">${toArabicNum(years)} سنة</div>
+      <div class="rule72-name">${it.name}</div>
+      <div style="font-size:11px;color:var(--text3)">${it.rate}٪ سنوياً</div>
+    </div>`;
+  }).join('');
+}
+
+function renderNetWorthChart() {
+  const history = state.capital.history;
+  if(history.length < 1) return;
+
+  const W = 340, H = 120;
+  const vals = history.map(h=>h.value);
+  const min = Math.min(...vals) * 0.95;
+  const max = Math.max(...vals) * 1.05;
+
+  const pts = history.map((h,i) => {
+    const x = 20 + (i / Math.max(history.length-1,1)) * (W-40);
+    const y = H - 20 - ((h.value - min) / (max - min || 1)) * (H-40);
+    return `${x},${y}`;
+  });
+
+  const area = `M ${pts[0]} ` + pts.slice(1).map(p=>`L ${p}`).join(' ') +
+    ` L ${20+(history.length-1)/(Math.max(history.length-1,1))*(W-40)},${H-20} L 20,${H-20} Z`;
+
+  document.getElementById('netWorthChart').innerHTML = `
+    <svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto">
+      <defs>
+        <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1A4A6E" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#1A4A6E" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="${area}" fill="url(#areaGrad)"/>
+      <polyline points="${pts.join(' ')}" fill="none" stroke="#1A4A6E" stroke-width="2" stroke-linejoin="round"/>
+      ${history.map((h,i) => {
+        const x = 20 + (i / Math.max(history.length-1,1)) * (W-40);
+        const y = H - 20 - ((h.value - min) / (max - min || 1)) * (H-40);
+        return `<circle cx="${x}" cy="${y}" r="3" fill="#1A4A6E" class="timeline-point"/>
+                <text x="${x}" y="${H-5}" text-anchor="middle" font-size="8" fill="var(--text3)">${h.date.slice(5)}</text>`;
+      }).join('')}
+      <text x="5" y="15" font-size="9" fill="var(--text3)">${fmt(max/1000)}K</text>
+      <text x="5" y="${H-22}" font-size="9" fill="var(--text3)">${fmt(min/1000)}K</text>
+    </svg>`;
+}
+
+function renderProjectionChart() {
+  const W = 340, H = 140;
+  const years = 15;
+  const cap = state.capital.value;
+  const monthly = state.settings.monthlyInvest;
+  const r = state.settings.stockReturn / 100 / 12;
+
+  // Generate projections
+  const projPts = [], actualPts = [];
+  for(let m=0; m<=years*12; m+=12) {
+    const yr = m/12;
+    // Expected projection from start
+    const proj = 176605 * Math.pow(1+r,m) + monthly * ((Math.pow(1+r,m)-1)/r);
+    projPts.push({x:yr, y:proj});
+    // Actual (just current point for now)
+    if(m===0) actualPts.push({x:0, y:176605});
+    const elapsed = monthsBetween('2026-04-01', new Date());
+    if(m <= elapsed+6) actualPts.push({x:yr, y:cap});
+  }
+
+  const allY = [...projPts.map(p=>p.y)];
+  const maxY = Math.max(...allY);
+  const minY = 0;
+
+  function toSVG(x,y) {
+    return {
+      sx: 30 + (x/years)*(W-50),
+      sy: H-25 - ((y-minY)/(maxY-minY||1))*(H-45)
+    };
+  }
+
+  const projLine = projPts.map((p,i) => {
+    const {sx,sy} = toSVG(p.x,p.y);
+    return (i===0?'M':'L')+` ${sx} ${sy}`;
+  }).join(' ');
+
+  // X axis labels
+  const xLabels = [0,5,10,15].map(yr => {
+    const {sx} = toSVG(yr,0);
+    return `<text x="${sx}" y="${H-8}" text-anchor="middle" font-size="9" fill="var(--text3)">${yr===0?'الآن':yr+'س'}</text>`;
+  }).join('');
+
+  // Y axis labels
+  const yLabels = [0, 2000000, 4000000, 6000000].map(v => {
+    const {sy} = toSVG(0,v);
+    return `<text x="28" y="${sy+3}" text-anchor="end" font-size="8" fill="var(--text3)">${v/1000000}M</text>`;
+  }).join('');
+
+  document.getElementById('projectionChart').innerHTML = `
+    <svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto">
+      <defs>
+        <linearGradient id="projGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1A4A6E" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#1A4A6E" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <line x1="30" y1="${H-25}" x2="${W-10}" y2="${H-25}" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      ${[2000000,4000000,6000000].map(v=>{
+        const {sy} = toSVG(0,v);
+        return `<line x1="30" y1="${sy}" x2="${W-10}" y2="${sy}" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>`;
+      }).join('')}
+      ${xLabels}
+      ${yLabels}
+      <path d="${projLine} L ${toSVG(15,0).sx} ${H-25} L ${toSVG(0,0).sx} ${H-25} Z" fill="url(#projGrad)"/>
+      <path d="${projLine}" fill="none" stroke="#1A4A6E" stroke-width="2" stroke-dasharray="4,2"/>
+      <line x1="${toSVG(0,GOAL_CAPITAL).sx}" y1="${toSVG(0,GOAL_CAPITAL).sy}" x2="${W-10}" y2="${toSVG(0,GOAL_CAPITAL).sy}" stroke="var(--teal2)" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="${W-8}" y="${toSVG(0,GOAL_CAPITAL).sy-4}" text-anchor="end" font-size="8" fill="var(--teal2)">الهدف</text>
+      <circle cx="${toSVG(0,cap).sx}" cy="${toSVG(0,cap).sy}" r="5" fill="var(--green2)"/>
+      <text x="${toSVG(0,cap).sx+8}" y="${toSVG(0,cap).sy+4}" font-size="9" fill="var(--green2)">الآن</text>
+    </svg>`;
+}
+
+function calcExtra() {
+  const extra = parseFloat(document.getElementById('extraCalcInput').value) || 0;
+  if(!extra) { document.getElementById('extraCalcResult').style.display='none'; return; }
+  const r = state.settings.stockReturn / 100 / 12;
+  const months = 15 * 12;
+  const futureValue = extra * ((Math.pow(1+r,months)-1)/r);
+  document.getElementById('extraCalcBig').textContent = fmt(futureValue) + ' ريال';
+  document.getElementById('extraCalcSub').textContent = 'إضافة ' + fmt(extra) + ' ريال/شهر تضيف هذا المبلغ بعد ١٥ سنة';
+  document.getElementById('extraCalcResult').style.display = 'block';
+}
+
+function saveCapital() {
+  const val = parseFloat(document.getElementById('input-capital').value);
+  const date = document.getElementById('input-capital-date').value || todayStr();
+  if(!val || val <= 0) return showToast('أدخل رقماً صحيحاً');
+  state.capital.value = val;
+  state.capital.history.push({date, value:val});
+  saveState();
+  closeModal('modal-update-capital');
+  renderHome();
+  showToast('✅ تم تحديث رأس المال');
+}
+
+function saveSettings() {
+  state.settings.monthlyInvest = parseFloat(document.getElementById('settMonthly').value) || 9000;
+  state.settings.usdRate = parseFloat(document.getElementById('settUSD').value) || 3.75;
+  state.settings.inflation = parseFloat(document.getElementById('settInflation').value) || 2.5;
+  state.settings.stockReturn = parseFloat(document.getElementById('settStockReturn').value) || 9;
+  saveState();
+  showToast('✅ تم حفظ الإعدادات');
+}
+
+// ═══════════════════════════════════════════
+// PORTFOLIOS
+// ═══════════════════════════════════════════
+
+let activePortId = null;
+
+function renderPortfolios() {
+  const container = document.getElementById('portfolioCards');
+  container.innerHTML = state.portfolios.map(p => renderPortfolioCard(p)).join('');
+}
+
+function renderPortfolioCard(p) {
+  const profit = p.balance - (p.invested || p.balance);
+  const profitPct = p.invested ? ((profit / p.invested) * 100) : 0;
+
+  if(p.type === 'deposit') {
+    return renderDepositCard(p);
+  }
+
+  if(p.type === 'usd') {
+    return renderUSDCard(p);
+  }
+
+  // Projections
+  const proj5 = compoundGrowth(p.balance, p.annualReturn, 5);
+  const proj10 = compoundGrowth(p.balance, p.annualReturn, 10);
+  const proj15 = compoundGrowth(p.balance, p.annualReturn, 15);
+
+  const profitClass = profit >= 0 ? 'pos' : 'neg';
+  const badgeClass = profit >= 0 ? 'badge-green' : 'badge-red';
+
+  return `<div class="card">
+    <div class="card-header">
+      <span style="font-size:16px">${p.icon} <span style="font-weight:700;font-size:14px">${p.name}</span></span>
+      <span class="badge ${badgeClass}">${profit >= 0 ? '▲' : '▼'} ${Math.abs(profitPct).toFixed(2)}٪</span>
+    </div>
+    <div class="big-number" style="color:${p.color || 'var(--text)'}">
+      ${fmt(p.balance)} <span>ريال</span>
+    </div>
+    <div class="divider"></div>
+    <div class="row"><span class="label">المستثمر</span><span class="value">${fmtSAR(p.invested || p.balance)}</span></div>
+    <div class="row"><span class="label">الربح/الخسارة</span><span class="value ${profitClass}">${profit >= 0 ? '+' : ''}${fmtSAR(profit)}</span></div>
+    ${p.monthlyAdd ? `<div class="row"><span class="label">الإضافة الشهرية</span><span class="value gold">${fmtSAR(p.monthlyAdd)}</span></div>` : ''}
+    <div class="row"><span class="label">العائد السنوي</span><span class="value">${p.annualReturn}٪</span></div>
+    <div class="divider"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center">
+      <div><div style="font-size:11px;color:var(--text3)">٥ سنوات</div><div style="font-size:13px;font-weight:700;color:var(--gold)">${fmt(proj5/1000,0)}K</div></div>
+      <div><div style="font-size:11px;color:var(--text3)">١٠ سنوات</div><div style="font-size:13px;font-weight:700;color:var(--gold)">${fmt(proj10/1000,0)}K</div></div>
+      <div><div style="font-size:11px;color:var(--text3)">١٥ سنة</div><div style="font-size:13px;font-weight:700;color:var(--gold)">${fmt(proj15/1000,0)}K</div></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-gold btn-sm" onclick="openPortfolioUpdate('${p.id}')">تحديث الرصيد</button>
+      ${p.type==='flexible' ? `<button class="btn btn-teal btn-sm" onclick="openPortfolioDeposit('${p.id}')">+ إيداع</button>` : ''}
+    </div>
+  </div>`;
+}
+
+function renderDepositCard(p) {
+  const deposit = p.deposits[p.deposits.length - 1];
+  if(!deposit) return '';
+  const start = new Date(deposit.start);
+  const end = new Date(start);
+  end.setMonth(end.getMonth() + deposit.months);
+  const daysLeft = Math.max(0, Math.ceil((end - new Date()) / 86400000));
+  const expectedProfit = deposit.amount * (deposit.rate/100) * (deposit.months/12);
+  const isExpired = end <= new Date();
+
+  return `<div class="card" style="border-color:rgba(201,168,76,0.3)">
+    <div class="card-header">
+      <span style="font-size:16px">🏦 <span style="font-weight:700;font-size:14px">${p.name}</span></span>
+      <span class="badge ${isExpired ? 'badge-red' : 'badge-gold'}">${isExpired ? 'منتهية' : 'نشطة'}</span>
+    </div>
+    <div class="big-number" style="color:var(--gold)">
+      ${fmt(deposit.amount)} <span>ريال</span>
+    </div>
+    <div class="divider"></div>
+    <div class="row"><span class="label">النسبة السنوية</span><span class="value gold">${deposit.rate}٪</span></div>
+    <div class="row"><span class="label">المدة</span><span class="value">${deposit.months} شهر</span></div>
+    <div class="row"><span class="label">تاريخ البدء</span><span class="value">${deposit.start}</span></div>
+    <div class="row"><span class="label">تاريخ الانتهاء</span><span class="value">${end.toISOString().split('T')[0]}</span></div>
+    <div class="row"><span class="label">الأيام المتبقية</span><span class="value ${isExpired ? 'neg' : 'pos'}">${isExpired ? 'انتهت' : toArabicNum(daysLeft) + ' يوم'}</span></div>
+    <div class="row"><span class="label">العائد المتوقع</span><span class="value gold">+${fmtSAR(expectedProfit)}</span></div>
+    <div class="divider"></div>
+    <div style="font-size:11px;color:var(--text3);margin-bottom:10px">الدفعات السابقة: ${p.deposits.length}</div>
+    <div class="btn-row">
+      <button class="btn btn-gold btn-sm" onclick="openModal('modal-inma-deposit')">+ دفعة جديدة</button>
+      ${isExpired ? '<span class="badge badge-red">⚠️ انتهت — جدد أو أغلق</span>' : ''}
+    </div>
+  </div>`;
+}
+
+function renderUSDCard(p) {
+  const rate = state.settings.usdRate;
+  const totalSAR = p.balanceUSD * rate;
+  const earningsSAR = p.earningsUSD * rate;
+  return `<div class="card">
+    <div class="card-header">
+      <span style="font-size:16px">${p.icon} <span style="font-weight:700;font-size:14px">${p.name}</span></span>
+      <span class="badge badge-blue">USD</span>
+    </div>
+    <div class="big-number" style="color:var(--gold)">
+      $${fmt(p.balanceUSD,2)} <span style="font-size:12px">دولار</span>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-top:4px">≈ ${fmtSAR(totalSAR)}</div>
+    <div class="divider"></div>
+    <div class="row"><span class="label">العوائد</span><span class="value gold">$${fmt(p.earningsUSD,2)} (${fmtSAR(earningsSAR)})</span></div>
+    <div class="row"><span class="label">سعر الصرف</span><span class="value">${rate} ريال/$</span></div>
+    <div class="btn-row">
+      <button class="btn btn-gold btn-sm" onclick="openPortfolioUpdate('${p.id}')">تحديث</button>
+    </div>
+  </div>`;
+}
+
+let activePortAction = null;
+function openPortfolioUpdate(id) {
+  activePortId = id;
+  const p = state.portfolios.find(x=>x.id===id);
+  document.getElementById('modal-port-title').textContent = 'تحديث: ' + p.name;
+  let body = '';
+  if(p.type === 'usd') {
+    body = `
+      <div class="form-group"><label class="form-label">الأصول (دولار)</label>
+      <input type="number" class="form-input" id="port-usd-assets" value="${p.balanceUSD}" step="0.01"></div>
+      <div class="form-group"><label class="form-label">العوائد (دولار)</label>
+      <input type="number" class="form-input" id="port-usd-earnings" value="${p.earningsUSD}" step="0.01"></div>`;
+  } else {
+    body = `
+      <div class="form-group"><label class="form-label">الرصيد الحالي (ريال)</label>
+      <input type="number" class="form-input" id="port-balance" value="${p.balance}" step="0.01"></div>
+      <div class="form-group"><label class="form-label">إجمالي المستثمر (ريال)</label>
+      <input type="number" class="form-input" id="port-invested" value="${p.invested || p.balance}" step="0.01"></div>`;
+  }
+  document.getElementById('modal-port-body').innerHTML = body;
+  openModal('modal-portfolio-update');
+}
+
+function openPortfolioDeposit(id) {
+  activePortId = id;
+  const p = state.portfolios.find(x=>x.id===id);
+  document.getElementById('modal-port-title').textContent = 'إيداع في: ' + p.name;
+  document.getElementById('modal-port-body').innerHTML = `
+    <div class="form-group"><label class="form-label">مبلغ الإيداع (ريال)</label>
+    <input type="number" class="form-input" id="port-deposit-amount" placeholder="0" step="0.01"></div>
+    <div class="form-group"><label class="form-label">تاريخ الإيداع</label>
+    <input type="date" class="form-input" id="port-deposit-date" value="${todayStr()}"></div>`;
+  openModal('modal-portfolio-update');
+}
+
+function savePortfolioUpdate() {
+  const p = state.portfolios.find(x=>x.id===activePortId);
+  if(!p) return;
+  if(p.type === 'usd') {
+    const assets = parseFloat(document.getElementById('port-usd-assets')?.value);
+    const earnings = parseFloat(document.getElementById('port-usd-earnings')?.value);
+    if(assets) { p.balanceUSD = assets; p.balance = assets * state.settings.usdRate; }
+    if(earnings !== undefined) p.earningsUSD = earnings;
+  } else if(document.getElementById('port-deposit-amount')) {
+    const amount = parseFloat(document.getElementById('port-deposit-amount').value);
+    if(amount > 0) {
+      p.balance = (p.balance || 0) + amount;
+      p.invested = (p.invested || 0) + amount;
+    }
+  } else {
+    const bal = parseFloat(document.getElementById('port-balance')?.value);
+    const inv = parseFloat(document.getElementById('port-invested')?.value);
+    if(bal >= 0) p.balance = bal;
+    if(inv >= 0) p.invested = inv;
+  }
+  saveState();
+  closeModal('modal-portfolio-update');
+  renderPortfolios();
+  showToast('✅ تم التحديث');
+}
+
+function saveInmaDeposit() {
+  const amount = parseFloat(document.getElementById('inma-amount').value);
+  const rate = parseFloat(document.getElementById('inma-rate').value);
+  const start = document.getElementById('inma-start').value;
+  const months = parseInt(document.getElementById('inma-months').value);
+  if(!amount || !rate || !start || !months) return showToast('أكمل جميع الحقول');
+  const p = state.portfolios.find(x=>x.id==='inma');
+  p.deposits.push({amount, rate, start, months, active:true});
+  p.balance = amount;
+  saveState();
+  closeModal('modal-inma-deposit');
+  renderPortfolios();
+  showToast('✅ تمت إضافة الدفعة');
+}
+
+// ═══════════════════════════════════════════
+// STOCKS
+// ═══════════════════════════════════════════
+
+let activeStockId = null;
+
+function renderStocks() {
+  const active = state.stocks.filter(s=>s.status !== 'closed');
+  const closed = state.closedStocks || [];
+
+  // Summary
+  const totalCost = active.reduce((s,x)=>s+x.totalCost,0);
+  const totalValue = active.reduce((s,x)=>s+x.currentValue,0);
+  const totalPL = totalValue - totalCost;
+  const totalDiv = active.reduce((s,x)=>s+(x.dividends||[]).reduce((a,d)=>a+d.amount,0),0) +
+    closed.reduce((s,x)=>s+(x.dividends||[]).reduce((a,d)=>a+d.amount,0),0);
+
+  document.getElementById('stockTotalCost').textContent = fmtSAR(totalCost);
+  document.getElementById('stockTotalValue').textContent = fmtSAR(totalValue);
+  const plEl = document.getElementById('stockTotalPL');
+  plEl.textContent = (totalPL>=0?'+':'')+fmtSAR(totalPL) + ' (' + (totalPL>=0?'+':'') + ((totalPL/totalCost)*100).toFixed(2)+'٪)';
+  plEl.className = 'value ' + (totalPL>=0?'pos':'neg');
+  document.getElementById('stockTotalDiv').textContent = fmtSAR(totalDiv);
+
+  document.getElementById('stockCards').innerHTML = active.map(s => renderStockCard(s)).join('');
+
+  if(closed.length > 0) {
+    document.getElementById('closedSection').style.display = 'block';
+    document.getElementById('closedCards').innerHTML = closed.map(s => renderClosedCard(s)).join('');
+  }
+}
+
+function renderStockCard(s) {
+  const pl = s.currentValue - s.totalCost;
+  const plPct = s.totalCost ? (pl/s.totalCost*100) : 0;
+  const totalDiv = (s.dividends||[]).reduce((a,d)=>a+d.amount,0);
+  const plClass = pl >= 0 ? 'pos' : 'neg';
+  const badgeClass = pl >= 0 ? 'badge-green' : 'badge-red';
+  const statusBadge = s.status === 'hold' ? `<span class="badge badge-gold" style="margin-right:6px">انتظار</span>` :
+    s.status === 'active' ? '' : '';
+  const lastTrade = s.trades && s.trades.length ? s.trades[s.trades.length-1] : null;
+
+  return `<div class="card">
+    <div class="card-header">
+      <span style="font-size:16px">${s.icon} <span style="font-weight:700;font-size:14px">${s.name}</span>
+        <span style="font-size:11px;color:var(--text3);margin-right:4px">${s.id}</span>
+      </span>
+      <div style="display:flex;gap:4px;align-items:center">
+        ${statusBadge}
+        <span class="badge ${badgeClass}">${pl>=0?'▲':'▼'} ${Math.abs(plPct).toFixed(2)}٪</span>
+      </div>
+    </div>
+    ${s.buyDay ? `<div style="font-size:11px;color:var(--text3);margin-bottom:8px">📅 يوم ${s.buyDay} — ${fmtSAR(s.monthlyTarget)}/شهر</div>` : ''}
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+      <div><div class="label">الأسهم</div><div style="font-size:18px;font-weight:800">${fmt(s.shares)}</div></div>
+      <div><div class="label">متوسط التكلفة</div><div style="font-size:18px;font-weight:800">${fmt(s.avgCost,2)}</div></div>
+    </div>
+    <div class="row"><span class="label">إجمالي التكلفة</span><span class="value">${fmtSAR(s.totalCost)}</span></div>
+    <div class="row"><span class="label">القيمة الحالية</span><span class="value">${fmtSAR(s.currentValue)}</span></div>
+    <div class="row"><span class="label">الربح/الخسارة</span><span class="value ${plClass}">${pl>=0?'+':''}${fmtSAR(pl)}</span></div>
+    <div class="row"><span class="label">💰 التوزيعات</span><span class="value gold">${fmtSAR(totalDiv)}</span></div>
+    ${lastTrade ? `<div class="row"><span class="label">آخر صفقة</span><span class="value" style="font-size:11px">${lastTrade.date} — ${lastTrade.type==='buy'?'شراء':'بيع'} ${fmt(lastTrade.qty)} @ ${lastTrade.price}</span></div>` : ''}
+    ${s.note ? `<div class="alert alert-warn" style="margin-top:8px;padding:8px 12px">⚠️ ${s.note}</div>` : ''}
+    <div class="btn-row">
+      <button class="btn btn-gold btn-sm" onclick="openStockBuy('${s.id}')">+ شراء</button>
+      <button class="btn btn-teal btn-sm" onclick="openDividend('${s.id}')">+ توزيع</button>
+      <button class="btn btn-outline btn-sm" onclick="openStockUpdate('${s.id}')">تحديث</button>
+      <button class="btn btn-red btn-sm" onclick="openStockSell('${s.id}')">إغلاق</button>
+    </div>
+  </div>`;
+}
+
+function renderClosedCard(s) {
+  const plClass = s.realizedPL >= 0 ? 'pos' : 'neg';
+  return `<div class="card" style="opacity:0.7">
+    <div class="card-header">
+      <span>${s.icon} <span style="font-weight:700">${s.name}</span></span>
+      <span class="closed-badge">مغلق ${s.closedDate || ''}</span>
+    </div>
+    <div class="row"><span class="label">ر/خ محققة</span><span class="value ${plClass}">${s.realizedPL>=0?'+':''}${fmtSAR(s.realizedPL)}</span></div>
+  </div>`;
+}
+
+function openStockBuy(id) {
+  activeStockId = id;
+  const s = state.stocks.find(x=>x.id===id);
+  document.getElementById('modal-stock-buy-title').textContent = 'شراء: ' + s.name;
+  document.getElementById('buy-qty').value = '';
+  document.getElementById('buy-price').value = '';
+  document.getElementById('buy-date').value = todayStr();
+  openModal('modal-stock-buy');
+}
+
+function saveStockBuy() {
+  const qty = parseFloat(document.getElementById('buy-qty').value);
+  const price = parseFloat(document.getElementById('buy-price').value);
+  const date = document.getElementById('buy-date').value;
+  if(!qty || !price) return showToast('أدخل الكمية والسعر');
+  const s = state.stocks.find(x=>x.id===activeStockId);
+  // Weighted average
+  const newTotalCost = s.totalCost + qty * price;
+  const newShares = s.shares + qty;
+  s.avgCost = newTotalCost / newShares;
+  s.shares = newShares;
+  s.totalCost = newTotalCost;
+  s.trades = s.trades || [];
+  s.trades.push({date, qty, price, type:'buy'});
+  saveState();
+  closeModal('modal-stock-buy');
+  renderStocks();
+  showToast('✅ تم تسجيل الشراء');
+}
+
+function openStockUpdate(id) {
+  activeStockId = id;
+  const s = state.stocks.find(x=>x.id===id);
+  document.getElementById('modal-stock-buy-title').textContent = 'تحديث السعر الحالي: ' + s.name;
+  document.getElementById('buy-qty').value = '';
+  const priceInput = document.getElementById('buy-price');
+  priceInput.value = s.currentPrice;
+  document.getElementById('buy-date').value = todayStr();
+  // Repurpose buy modal for price update
+  document.getElementById('buy-qty').placeholder = '(اتركه فارغاً لتحديث السعر فقط)';
+  openModal('modal-stock-buy');
+}
+
+function openStockSell(id) {
+  activeStockId = id;
+  const s = state.stocks.find(x=>x.id===id);
+  document.getElementById('modal-stock-sell-title').textContent = 'إغلاق: ' + s.name;
+  document.getElementById('sell-qty').value = s.shares;
+  document.getElementById('sell-price').value = s.currentPrice;
+  document.getElementById('sell-date').value = todayStr();
+  document.getElementById('sell-preview').style.display = 'none';
+  openModal('modal-stock-sell');
+}
+
+document.getElementById('sell-price').addEventListener('input', previewSell);
+document.getElementById('sell-qty').addEventListener('input', previewSell);
+function previewSell() {
+  const qty = parseFloat(document.getElementById('sell-qty').value)||0;
+  const price = parseFloat(document.getElementById('sell-price').value)||0;
+  if(!qty || !price || !activeStockId) return;
+  const s = state.stocks.find(x=>x.id===activeStockId);
+  if(!s) return;
+  const pl = (price - s.avgCost) * qty;
+  document.getElementById('sell-pl-val').textContent = (pl>=0?'+':'')+fmtSAR(pl);
+  document.getElementById('sell-pl-val').style.color = pl>=0?'var(--green2)':'var(--red2)';
+  document.getElementById('sell-preview').style.display = 'block';
+}
+
+function saveStockSell() {
+  const qty = parseFloat(document.getElementById('sell-qty').value);
+  const price = parseFloat(document.getElementById('sell-price').value);
+  const date = document.getElementById('sell-date').value;
+  if(!qty || !price) return showToast('أدخل الكمية والسعر');
+  const idx = state.stocks.findIndex(x=>x.id===activeStockId);
+  const s = state.stocks[idx];
+  const pl = (price - s.avgCost) * qty;
+
+  if(qty >= s.shares) {
+    // Full close
+    state.closedStocks = state.closedStocks || [];
+    state.closedStocks.push({...s, status:'closed', realizedPL:pl, closedDate:date});
+    state.stocks.splice(idx,1);
+  } else {
+    // Partial
+    s.shares -= qty;
+    s.totalCost = s.avgCost * s.shares;
+    s.currentValue = s.currentPrice * s.shares;
+    s.trades.push({date, qty, price, type:'sell'});
+  }
+  saveState();
+  closeModal('modal-stock-sell');
+  renderStocks();
+  showToast('✅ تم إغلاق المركز — ر/خ: ' + (pl>=0?'+':'') + fmt(pl) + ' ريال');
+}
+
+function openDividend(id) {
+  activeStockId = id;
+  const s = state.stocks.find(x=>x.id===id);
+  document.getElementById('modal-div-title').textContent = 'توزيع: ' + s.name;
+  document.getElementById('div-amount').value = '';
+  document.getElementById('div-date').value = todayStr();
+  openModal('modal-dividend');
+}
+
+function saveDividend() {
+  const amount = parseFloat(document.getElementById('div-amount').value);
+  const date = document.getElementById('div-date').value;
+  if(!amount) return showToast('أدخل المبلغ');
+  const s = state.stocks.find(x=>x.id===activeStockId);
+  s.dividends = s.dividends || [];
+  s.dividends.push({date, amount});
+  saveState();
+  closeModal('modal-dividend');
+  renderStocks();
+  showToast('✅ تم تسجيل التوزيع');
+}
+
+// ═══════════════════════════════════════════
+// COMMITMENT
+// ═══════════════════════════════════════════
+
+let commitMonthOffset = 0;
+
+function prevMonth() { commitMonthOffset--; renderCommitment(); }
+function nextMonth() { if(commitMonthOffset < 0) { commitMonthOffset++; renderCommitment(); } }
+
+function renderCommitment() {
+  const key = getMonthKey(commitMonthOffset);
+  const monthData = state.commitment.months[key] || {done:[], dates:{}, note:''};
+  const items = state.commitment.items;
+  const donePct = items.length ? Math.round((monthData.done.length / items.length) * 100) : 0;
+
+  document.getElementById('commitMonthLabel').textContent = monthLabel(key);
+  document.getElementById('streakNum').textContent = toArabicNum(state.commitment.streak);
+  document.getElementById('commitPct').textContent = toArabicNum(donePct) + '٪';
+
+  const container = document.getElementById('checklistItems');
+  container.innerHTML = items.map(item => {
+    const done = monthData.done.includes(item.id);
+    const actualDate = monthData.dates?.[item.id] || '';
+    const dayLabel = item.day === 0 ? 'نهاية الشهر' : 'يوم ' + item.day;
+    return `<div class="check-item ${done ? 'done' : ''}" onclick="toggleCheck('${item.id}','${key}')">
+      <div class="check-box">${done ? '✓' : ''}</div>
+      <div class="check-info">
+        <div class="check-name">${item.name}</div>
+        <div class="check-meta">${dayLabel}${actualDate ? ' · تم: '+actualDate : ''}</div>
+      </div>
+      <div class="check-amount">${fmtSAR(item.amount)}</div>
+      <button class="check-date-btn" onclick="event.stopPropagation();openChangeDate('${item.id}','${key}')">📅</button>
+    </div>`;
+  }).join('');
+
+  document.getElementById('monthNote').value = monthData.note || '';
+
+  // History
+  const histKeys = Object.keys(state.commitment.months).sort().reverse();
+  const histContainer = document.getElementById('commitHistory');
+  histContainer.innerHTML = histKeys.map(k => {
+    const md = state.commitment.months[k];
+    const pct = items.length ? Math.round((md.done.length / items.length)*100) : 0;
+    const isComplete = pct === 100;
+    return `<div class="history-item">
+      <div>
+        <div class="history-date">${monthLabel(k)}</div>
+        ${md.note ? `<div style="font-size:11px;color:var(--text3)">${md.note}</div>` : ''}
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="history-val" style="color:${isComplete?'var(--green2)':pct>50?'var(--gold)':'var(--red2)'}">${toArabicNum(pct)}٪</div>
+        ${isComplete ? '<span>✅</span>' : ''}
+      </div>
+    </div>`;
+  }).join('') || '<div style="color:var(--text3);font-size:12px;padding:8px 0">لا يوجد سجل بعد</div>';
+}
+
+function toggleCheck(itemId, monthKey) {
+  if(!state.commitment.months[monthKey]) {
+    state.commitment.months[monthKey] = {done:[], dates:{}, note:''};
+  }
+  const done = state.commitment.months[monthKey].done;
+  const idx = done.indexOf(itemId);
+  if(idx >= 0) done.splice(idx,1);
+  else {
+    done.push(itemId);
+    done.sort();
+  }
+  // Update streak
+  updateStreak();
+  saveState();
+  renderCommitment();
+}
+
+function updateStreak() {
+  const items = state.commitment.items;
+  let streak = 0;
+  let offset = -1; // start from last month
+  while(true) {
+    const key = getMonthKey(offset);
+    const md = state.commitment.months[key];
+    if(!md || md.done.length < items.length) break;
+    streak++;
+    offset--;
+    if(offset < -24) break;
+  }
+  state.commitment.streak = streak;
+}
+
+let changeDateItemId = null, changeDateMonthKey = null;
+function openChangeDate(itemId, monthKey) {
+  changeDateItemId = itemId;
+  changeDateMonthKey = monthKey;
+  document.getElementById('change-date-input').value = todayStr();
+  openModal('modal-change-date');
+}
+
+function saveCheckDate() {
+  const date = document.getElementById('change-date-input').value;
+  if(!state.commitment.months[changeDateMonthKey]) {
+    state.commitment.months[changeDateMonthKey] = {done:[], dates:{}, note:''};
+  }
+  state.commitment.months[changeDateMonthKey].dates = state.commitment.months[changeDateMonthKey].dates || {};
+  state.commitment.months[changeDateMonthKey].dates[changeDateItemId] = date;
+  saveState();
+  closeModal('modal-change-date');
+  renderCommitment();
+  showToast('✅ تم حفظ التاريخ');
+}
+
+function saveMonthNote() {
+  const key = getMonthKey(commitMonthOffset);
+  if(!state.commitment.months[key]) {
+    state.commitment.months[key] = {done:[], dates:{}, note:''};
+  }
+  state.commitment.months[key].note = document.getElementById('monthNote').value;
+  saveState();
+}
+
+// ═══════════════════════════════════════════
+// OTHER INVESTMENTS
+// ═══════════════════════════════════════════
+
+let activeInvId = null;
+
+function renderOther() {
+  const container = document.getElementById('otherInvestments');
+  if(!state.otherInvestments.length) {
+    container.innerHTML = '<div style="text-align:center;color:var(--text3);padding:40px 0">لا توجد استثمارات أخرى بعد</div>';
+    return;
+  }
+  container.innerHTML = state.otherInvestments.map(inv => renderInvCard(inv)).join('');
+}
+
+function renderInvCard(inv) {
+  const start = new Date(inv.start);
+  const end = new Date(start);
+  end.setMonth(end.getMonth() + inv.months);
+  const daysLeft = Math.ceil((end - new Date()) / 86400000);
+  const monthsLeft = Math.ceil((end - new Date()) / (30*86400000));
+  const totalDist = inv.distributions.reduce((s,d)=>s+d.amount,0);
+  const expectedTotal = inv.amount * (inv.annualReturn/100) * (inv.months/12);
+  const lastDist = inv.distributions.length ? inv.distributions[inv.distributions.length-1] : null;
+  const daysSinceLastDist = lastDist ? daysSince(lastDist.date) : null;
+  const isExpired = end <= new Date();
+  const isAlertDist = daysSinceLastDist > 180;
+
+  return `<div class="card">
+    <div class="card-header">
+      <span><span class="tag">${inv.type}</span> <span style="font-weight:700;font-size:14px;margin-right:6px">${inv.name}</span></span>
+      <span class="badge ${isExpired?'badge-red':'badge-green'}">${isExpired?'منتهي':monthsLeft+' شهر'}</span>
+    </div>
+    <div style="font-size:12px;color:var(--text3);margin-bottom:10px">📱 ${inv.platform}</div>
+    <div class="big-number" style="color:var(--gold)">${fmt(inv.amount)} <span>ريال</span></div>
+    <div class="divider"></div>
+    <div class="row"><span class="label">العائد السنوي</span><span class="value gold">${inv.annualReturn}٪</span></div>
+    <div class="row"><span class="label">تاريخ البدء</span><span class="value">${inv.start}</span></div>
+    <div class="row"><span class="label">تاريخ الانتهاء</span><span class="value">${end.toISOString().split('T')[0]}</span></div>
+    <div class="row"><span class="label">الأيام المتبقية</span><span class="value ${daysLeft<0?'neg':'pos'}">${daysLeft<0?'انتهى':toArabicNum(daysLeft)+' يوم'}</span></div>
+    <div class="divider"></div>
+    <div class="row"><span class="label">التوزيعات المستلمة</span><span class="value gold">${fmtSAR(totalDist)}</span></div>
+    <div class="row"><span class="label">العائد المتوقع الإجمالي</span><span class="value">${fmtSAR(expectedTotal)}</span></div>
+    <div class="row"><span class="label">آخر توزيع</span><span class="value">${lastDist ? lastDist.date : '—'}</span></div>
+    ${isAlertDist ? `<div class="alert alert-red" style="margin-top:8px">⚠️ انقطع التوزيع منذ ${Math.floor(daysSinceLastDist/30)} شهر — تحقق من الصندوق</div>` : ''}
+    ${inv.note ? `<div class="alert alert-warn" style="margin-top:8px">📝 ${inv.note}</div>` : ''}
+    <div class="btn-row">
+      <button class="btn btn-gold btn-sm" onclick="openInvDist('${inv.id}')">+ توزيع</button>
+      <button class="btn btn-red btn-sm" onclick="deleteInvestment('${inv.id}')">حذف</button>
+    </div>
+    ${inv.distributions.length ? `
+    <div class="divider"></div>
+    <div style="font-size:11px;color:var(--text3);margin-bottom:6px">سجل التوزيعات</div>
+    ${inv.distributions.map(d=>`<div class="history-item"><span class="history-date">${d.date}</span><span class="history-val" style="color:var(--gold)">${fmtSAR(d.amount)}</span></div>`).join('')}` : ''}
+  </div>`;
+}
+
+function saveInvestment() {
+  const type = document.getElementById('inv-type').value;
+  const name = document.getElementById('inv-name').value;
+  const platform = document.getElementById('inv-platform').value;
+  const amount = parseFloat(document.getElementById('inv-amount').value);
+  const start = document.getElementById('inv-start').value;
+  const months = parseInt(document.getElementById('inv-months').value);
+  const annualReturn = parseFloat(document.getElementById('inv-return').value);
+  const note = document.getElementById('inv-note').value;
+  if(!name || !amount || !start || !months || !annualReturn) return showToast('أكمل الحقول المطلوبة');
+  state.otherInvestments.push({
+    id: 'inv-' + Date.now(), type, name, platform, amount, start, months, annualReturn, note,
+    distributions: []
+  });
+  saveState();
+  closeModal('modal-add-investment');
+  renderOther();
+  showToast('✅ تم إضافة الاستثمار');
+}
+
+function openInvDist(id) {
+  activeInvId = id;
+  const inv = state.otherInvestments.find(x=>x.id===id);
+  document.getElementById('modal-inv-dist-title').textContent = 'توزيع: ' + inv.name;
+  document.getElementById('inv-dist-amount').value = '';
+  document.getElementById('inv-dist-date').value = todayStr();
+  openModal('modal-inv-dist');
+}
+
+function saveInvDist() {
+  const amount = parseFloat(document.getElementById('inv-dist-amount').value);
+  const date = document.getElementById('inv-dist-date').value;
+  if(!amount) return showToast('أدخل المبلغ');
+  const inv = state.otherInvestments.find(x=>x.id===activeInvId);
+  inv.distributions.push({date, amount});
+  saveState();
+  closeModal('modal-inv-dist');
+  renderOther();
+  showToast('✅ تم تسجيل التوزيع');
+}
+
+function deleteInvestment(id) {
+  if(!confirm('هل أنت متأكد من الحذف؟')) return;
+  state.otherInvestments = state.otherInvestments.filter(x=>x.id!==id);
+  saveState();
+  renderOther();
+  showToast('🗑 تم الحذف');
+}
+
+// ═══════════════════════════════════════════
+// BACKUP / RESTORE
+// ═══════════════════════════════════════════
+
+function exportData() {
+  const data = JSON.stringify(state, null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'freedom2041-backup-' + todayStr() + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('✅ تم التصدير');
+}
+
+function importData(event) {
+  const file = event.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const imported = JSON.parse(e.target.result);
+      state = deepMerge(state, imported);
+      saveState();
+      renderHome();
+      showToast('✅ تم الاستيراد بنجاح');
+    } catch(err) {
+      showToast('❌ خطأ في الملف');
+    }
+  };
+  reader.readAsText(file);
+}
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+
+loadState();
+renderHome();
+
+// Service Worker Registration
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+</script>
+
+<!-- PWA Manifest (inline) -->
+<script>
+const manifest = {
+  name: 'خطة الحرية المالية 2041',
+  short_name: 'حرية 2041',
+  description: 'متابعة خطة الحرية المالية 15 سنة',
+  start_url: '.',
+  display: 'standalone',
+  background_color: '#ffffff',
+  theme_color: '#ffffff',
+  orientation: 'portrait',
+  icons: [
+    { src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%231A4A6E'/%3E%3Ctext x='96' y='120' text-anchor='middle' font-size='100'%3E🏆%3C/text%3E%3C/svg%3E", sizes: '192x192', type: 'image/svg+xml' },
+    { src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='80' fill='%231A4A6E'/%3E%3Ctext x='256' y='320' text-anchor='middle' font-size='280'%3E🏆%3C/text%3E%3C/svg%3E", sizes: '512x512', type: 'image/svg+xml' }
+  ]
+};
+const blob = new Blob([JSON.stringify(manifest)], {type:'application/json'});
+const manifestURL = URL.createObjectURL(blob);
+const link = document.createElement('link');
+link.rel = 'manifest';
+link.href = manifestURL;
+document.head.appendChild(link);
+</script>
+</body>
+</html>
